@@ -443,6 +443,8 @@ section h3.section-subheading {
     z-index: 2;
 }
 
+
+
 @media(min-width:767px) {
     #what-we-do .what-we-do-item {
         margin: 0 0 30px;
@@ -917,3 +919,5 @@ body {
   float: left;
   margin: 1em;
 }
+
+
