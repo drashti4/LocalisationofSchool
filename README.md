@@ -18,7 +18,7 @@ Thank you for visiting our repo. :tada: This document will provide some informat
 
  - Students in schools wants to know about Computer - Internet but they don't know how to use it in right way one of the reason is teachers also don't know how to operate computer so they can't teach them.
  
- - Our Mozilla volunteers make campaign like kidzilla, Women in web literacy but It require more time of them. They can not give more time from their personal time. It is not sustainable way of development neither for students nor for volunteers.
+ - Our volunteers make campaign like kidzilla, Women in web literacy but It require more time of them. They can not give more time from their personal time. It is not sustainable way of development neither for students nor for volunteers.
  
 ## Solution 
 
