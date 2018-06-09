@@ -149,15 +149,13 @@
 
 <p>Here is an example of the base plotting functions in R:</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">plot</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plot</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
 <p><img src="../figure/cars-1.png" alt="center" /></p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">hist</span><span class="p">(</span><span class="n">cars</span><span class="o">$</span><span class="n">speed</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hist</span><span class="p">(</span><span class="n">cars</span><span class="o">$</span><span class="n">speed</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
 <p><img src="../figure/cars-2.png" alt="center" /></p>
 
@@ -165,12 +163,11 @@
 
 <p>We’ll investigate the dataset we’re going to use to make some graphs….</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="w">
 </span><span class="n">str</span><span class="p">(</span><span class="n">diamonds</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## Classes 'tbl_df', 'tbl' and 'data.frame':	53940 obs. of  10 variables:
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## Classes 'tbl_df', 'tbl' and 'data.frame':	53940 obs. of  10 variables:
 ##  $ carat  : num  0.23 0.21 0.23 0.29 0.31 0.24 0.24 0.26 0.22 0.23 ...
 ##  $ cut    : Ord.factor w/ 5 levels "Fair"&lt;"Good"&lt;..: 5 4 2 4 2 3 3 3 1 3 ...
 ##  $ color  : Ord.factor w/ 7 levels "D"&lt;"E"&lt;"F"&lt;"G"&lt;..: 2 2 2 6 7 7 6 5 2 5 ...
@@ -181,56 +178,48 @@
 ##  $ x      : num  3.95 3.89 4.05 4.2 4.34 3.94 3.95 4.07 3.87 4 ...
 ##  $ y      : num  3.98 3.84 4.07 4.23 4.35 3.96 3.98 4.11 3.78 4.05 ...
 ##  $ z      : num  2.43 2.31 2.31 2.63 2.75 2.48 2.47 2.53 2.49 2.39 ...
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Our first graph?</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">cut</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">carat</span><span class="p">))</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">cut</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">carat</span><span class="p">))</span><span class="w">
+</span></code></pre></div></div>
 
 <p><img src="../figure/unnamed-chunk-2-1.png" alt="center" /></p>
 
 <p>We’ve defined the structure of our graph, but we need to add a “layer” to it in order to define what type of graph it is. Let’s make a scatterplot:</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">carat</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">price</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> 
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">carat</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">price</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> 
   </span><span class="n">geom_point</span><span class="p">()</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p><img src="../figure/unnamed-chunk-3-1.png" alt="center" /></p>
 
 <p>You can also save the structure of the graph to a variable and then add layers and other attributes to it. Let’s do that:</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">g</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">carat</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">price</span><span class="p">))</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">g</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">carat</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">price</span><span class="p">))</span><span class="w">
 </span><span class="n">g</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_point</span><span class="p">()</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p><img src="../figure/unnamed-chunk-4-1.png" alt="center" /></p>
 
 <p>We can add other “layers” of graphs to our first graph. Let’s add a trend line to our scatterplot:</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">g</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_point</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_smooth</span><span class="p">()</span><span class="w"> 
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">g</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_point</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_smooth</span><span class="p">()</span><span class="w"> 
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## `geom_smooth()` using method = 'gam'
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## `geom_smooth()` using method = 'gam'
+</code></pre></div></div>
 
 <p><img src="../figure/unnamed-chunk-5-1.png" alt="center" /></p>
 
 <p>We can also “facet” our graphs, which means dividing a plot into subplots based on the values of one or more discrete variables.</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">g</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_point</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_smooth</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">facet_grid</span><span class="p">(</span><span class="n">cut</span><span class="o">~</span><span class="n">.</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">g</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_point</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_smooth</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">facet_grid</span><span class="p">(</span><span class="n">cut</span><span class="o">~</span><span class="n">.</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## `geom_smooth()` using method = 'gam'
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## `geom_smooth()` using method = 'gam'
+</code></pre></div></div>
 
 <p><img src="../figure/unnamed-chunk-6-1.png" alt="center" /></p>
 
@@ -238,73 +227,62 @@
 
 <p>Let’s say we don’t want to facet, but we want to colour the dots depending on the cut of the diamonds:</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">carat</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="o">=</span><span class="n">cut</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_point</span><span class="p">()</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">carat</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="o">=</span><span class="n">cut</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_point</span><span class="p">()</span><span class="w">
+</span></code></pre></div></div>
 
 <p><img src="../figure/unnamed-chunk-7-1.png" alt="center" /></p>
 
 <p>We can also change some aesthetic features of the graph. Let’s get rid of the color aspect of our structure and change the colour and size of the points:</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">carat</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">price</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_point</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"steelblue"</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="o">=</span><span class="m">4</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">carat</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">price</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_point</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"steelblue"</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="o">=</span><span class="m">4</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
 <p><img src="../figure/unnamed-chunk-8-1.png" alt="center" /></p>
 
 <p>Let’s look at how to change the theme and labels:</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">g</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_point</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">g</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_point</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
   </span><span class="n">ylab</span><span class="p">(</span><span class="s2">"Diamond Price"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
   </span><span class="n">xlab</span><span class="p">(</span><span class="s2">"Carat"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
   </span><span class="n">ggtitle</span><span class="p">(</span><span class="s2">"Diamond Price by Weight"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
   </span><span class="n">theme_bw</span><span class="p">()</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p><img src="../figure/unnamed-chunk-9-1.png" alt="center" /></p>
 
 <p>What about a bar plot? Let’s find out how many diamonds of each cut are in the dataset.</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">cut</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_bar</span><span class="p">()</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">cut</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_bar</span><span class="p">()</span><span class="w">
+</span></code></pre></div></div>
 
 <p><img src="../figure/unnamed-chunk-10-1.png" alt="center" /></p>
 
 <p>What about making interactive graphs in R?
 There is a package called plotly that lets us make our ggplot2 graphs interactive:</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">plotly</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">plotly</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## Error in library(plotly): there is no package called 'plotly'
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## Error in library(plotly): there is no package called 'plotly'
+</code></pre></div></div>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">g</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">cut</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_bar</span><span class="p">()</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">g</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">cut</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_bar</span><span class="p">()</span><span class="w">
 </span><span class="n">p</span><span class="o">=</span><span class="n">ggplotly</span><span class="p">(</span><span class="n">g</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## Error in eval(expr, envir, enclos): could not find function "ggplotly"
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## Error in eval(expr, envir, enclos): could not find function "ggplotly"
+</code></pre></div></div>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">p</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">p</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## Error in eval(expr, envir, enclos): object 'p' not found
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## Error in eval(expr, envir, enclos): object 'p' not found
+</code></pre></div></div>
 
 <p>Finally, here is qplot, a way of making super quick scatterplots in R.</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">qplot</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">diamonds</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">qplot</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">diamonds</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
 <p><img src="../figure/unnamed-chunk-12-1.png" alt="center" /></p>
 

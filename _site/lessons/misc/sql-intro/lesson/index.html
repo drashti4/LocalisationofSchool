@@ -110,10 +110,9 @@
 
 <p>These can be run locally:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>make r-notebook
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make r-notebook
 make python-notebook
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="requirements">Requirements</h2>
 
@@ -121,16 +120,14 @@ make python-notebook
 
 <p>Now you are ready to install the required R and Python libraries.  Inspect and run the following files:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pip install -r requirements/requirements.txt
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install -r requirements/requirements.txt
 R --no-save &lt; requirements/requirements.R
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>You can also automatically install requirements on Mac and Linux:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>make requirements
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make requirements
+</code></pre></div></div>
 
 <h2 id="basic-system-requirements">Basic System Requirements</h2>
 
@@ -146,31 +143,27 @@ R --no-save &lt; requirements/requirements.R
 
 <p>MacOS already has Python and probably sqlite3 as well.  You need R.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>brew install R
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew install R
+</code></pre></div></div>
 
 <h3 id="linux">Linux</h3>
 
 <p>You need R.  Try <code class="highlighter-rouge">apt</code>, <code class="highlighter-rouge">yum</code>, or whatever:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>apt-get install r-base
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get install r-base
 yum install R
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>You may need to install sqlite3.  You can test by running:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>which sqlite3
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>which sqlite3
+</code></pre></div></div>
 
 <p>If it returns nothing, then it is not currently installed.  Try <code class="highlighter-rouge">apt</code>, <code class="highlighter-rouge">yum</code>, or whatever:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>apt-get install sqlite3 libsqlite3-dev
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get install sqlite3 libsqlite3-dev
 yum install sqlite sqlite-devel
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="windows">Windows</h3>
 

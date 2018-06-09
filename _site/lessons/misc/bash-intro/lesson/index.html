@@ -121,7 +121,7 @@
 
 <p>The basic unit for a command line interpreter (CLI) is a <em>command</em>. This is a line that starts with a <em>commmand name</em> followed (optionally) by <em>arguments</em>. Examples of commands are,</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ls
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ls
 ls -a
 date
 man date
@@ -133,8 +133,7 @@ echo 'hello world'
 find . -not -name '*.py' -type f -exec rm {} +
 which python
 cal
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Try them out and see what they do.</p>
 
@@ -180,33 +179,29 @@ cal
 
 <p>Many commands end up using files, so it’s good to have an idea of how to name them. Files are specified in arguments with a <em>pathname</em>.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[directory-name/]filename
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[directory-name/]filename
+</code></pre></div></div>
 
 <p>Except for a few cases, the pathname is relative to the <em>current working directory</em>. So if you are in your home directory, <code class="highlighter-rouge">Desktop/my_script.py</code> refers to the <code class="highlighter-rouge">my_script.py</code> file in your own Desktop folder, not anyone else’s. If you’re in your <code class="highlighter-rouge">Desktop</code> folder, then <code class="highlighter-rouge">Desktop/my_script.py</code> refers to a file inside the Desktop folder inside your Desktop folder (which probably isn’t there), but <code class="highlighter-rouge">my_script.py</code> refers to the previous file.</p>
 
 <p>Try it out: from your home directory, run the following commands (<code class="highlighter-rouge">touch</code> creates a file):</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>mkdir tmp
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir tmp
 touch tmp/file_a
 ls
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>In the list of files, you should see the <code class="highlighter-rouge">tmp</code> directory, but no <code class="highlighter-rouge">file_a</code>. Now execute</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ls tmp
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ls tmp
+</code></pre></div></div>
 
 <p>you should see the files in the <code class="highlighter-rouge">tmp</code> directory (<code class="highlighter-rouge">file_a</code>). Now try</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>cat tmp/file_a
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat tmp/file_a
 cd tmp
 cat tmp/file_a
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>What went wrong?</p>
 
@@ -246,34 +241,30 @@ cat tmp/file_a
 
 <p>This is easier to see with commands like <code class="highlighter-rouge">cat</code> and <code class="highlighter-rouge">head</code>. Try these out using our demo directory:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>head animals
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>head animals
 cat animals
 cat animals | head
 ls | head -n2
 head
 grep 'fish' animals | wc -l
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Can you figure out how each of these commands behave from the above?</p>
 
 <p>You can also redirect output into a file with <code class="highlighter-rouge">&gt;</code> or <code class="highlighter-rouge">&gt;&gt;</code>. The former over-writes the file, while <code class="highlighter-rouge">&gt;&gt;</code> appends to the file if it exists. For example,</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>grep 'fish' animals &gt; list-of-fish
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grep 'fish' animals &gt; list-of-fish
+</code></pre></div></div>
 
 <p>Will create a new file with a list of fish. Files can also be used for <code class="highlighter-rouge">stdin</code> using the <code class="highlighter-rouge">&lt;</code> character. The above command would be</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>grep fish &lt; animals &gt; list-of-fish
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grep fish &lt; animals &gt; list-of-fish
+</code></pre></div></div>
 
 <p>Or, with pipes,</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>grep fish &lt; animals | wc -l &gt; number-of-fish
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grep fish &lt; animals | wc -l &gt; number-of-fish
+</code></pre></div></div>
 
 <p>Note that <code class="highlighter-rouge">&lt;</code> appears after the first command, because each line must start witha  command. What would happen if you tried <code class="highlighter-rouge">animals &gt; grep fish</code>?</p>
 
@@ -285,29 +276,25 @@ grep 'fish' animals | wc -l
 
 <p>If the output of a command is very long, use <code class="highlighter-rouge">less</code>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>long-output-command | less
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>long-output-command | less
+</code></pre></div></div>
 
 <p>You can then scroll up and down and quit less by typing <code class="highlighter-rouge">q</code>.</p>
 
 <p>Joining (concatenating) files with <code class="highlighter-rouge">cat</code>.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>cat file1 file2 &gt; both-files
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat file1 file2 &gt; both-files
+</code></pre></div></div>
 
 <p>Appending a line to a file</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>echo "put this at the end" &gt;&gt; some-file
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "put this at the end" &gt;&gt; some-file
+</code></pre></div></div>
 
 <p>Search and replace in a file</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sed -e 's/cat/dog/g' &lt; animals &gt; no-cats
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed -e 's/cat/dog/g' &lt; animals &gt; no-cats
+</code></pre></div></div>
 
 <h2 id="multiple-commands-in-a-line">Multiple commands in a line</h2>
 
@@ -324,47 +311,41 @@ grep 'fish' animals | wc -l
 
 <p>Bash happens to be a full scripting language (aka bash script). As part of that are variables. They can be assigned with <code class="highlighter-rouge">=</code>. Try the following:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>myOne=1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>myOne=1
 myName=John
 mySubject = Physics
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>What happened in the last example? In bash, there cannot be a space between the variable name and <code class="highlighter-rouge">=</code>. Now let’s try accessing our variables.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>echo myName
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo myName
+</code></pre></div></div>
 
 <p>Why doesn’t that work? Bash has no way of knowing whether <code class="highlighter-rouge">myName</code> is a variablename or string-literal, so it always assumes a string. To access variables, we use <code class="highlighter-rouge">$varname</code>.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>echo $myName
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo $myName
 echo $myOne
 echo $mySubject
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Note that if a variable isn’t defined, then it simply returns an empty string. Everything in bash is a string. Even numbers are strings which are cast to ints for arithmetic.</p>
 
 <p>There are special variables called <em>environment variables</em> which are used by bash and other programs to affect behaviour. One of the most important ones is <code class="highlighter-rouge">$PATH</code>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>echo $PATH
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo $PATH
+</code></pre></div></div>
 
 <p>The path is a list of all directories to search for commands. To add a directory to your path,</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>export PATH="${HOME}/.local/bin:${PATH}"
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export PATH="${HOME}/.local/bin:${PATH}"
+</code></pre></div></div>
 
 <p>That adds the <code class="highlighter-rouge">~/.local/bin</code> directory to my path, so any programs installed there are now first-class commands in this bash session.</p>
 
 <p>All defined environment variables can be found with the <code class="highlighter-rouge">env</code> command. For example,</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>`env | sed 's/=.*$//'`
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`env | sed 's/=.*$//'`
+</code></pre></div></div>
 
 <p>will print all defined variable names.</p>
 
@@ -372,31 +353,28 @@ echo $mySubject
 
 <p>Repetitive tasks call for loops! Bash has loops:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>for i in 1 2 3 4 5; do
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for i in 1 2 3 4 5; do
     echo The value of i is $i
 done
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The basic syntax is</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>for variable_name in a_list; do
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for variable_name in a_list; do
     [commands]
 done
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The list is just like an argument list to a command: each item is a string, separated by spaces. Try using different values in the for loop, or putting quotes around different items.</p>
 
 <p>One common task I have is performing a command on each file in a directory. For example, consider adding a license preamble to every sourcefile in your project. If the license is in <code class="highlighter-rouge">LICENSE.txt</code>, then</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>for fn in *.py; do
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for fn in *.py; do
     cat LICENSE.txt $fn &gt; tmpfile
     mv tmpfile $fn
 done
 rm tmpfile
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Unfortunately, there isn’t a simple, universal way to prepend a file without a temporary file.</p>
 
@@ -404,30 +382,27 @@ rm tmpfile
 
 <p>Scripts are files that contain lists of commands, very much like scripts in Python, Ruby, R, Perl, etc. They can be run in much the same way.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>bash myscript.sh
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash myscript.sh
+</code></pre></div></div>
 
 <p>Another trick is to use the “shebang” syntax at the beginning of a file</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 
 <span class="nb">echo</span> <span class="s2">"The first argument is </span><span class="nv">$1</span><span class="s2">"</span>
 
 <span class="nb">echo</span> <span class="s2">"All of the arguments are"</span>
-<span class="k">for </span>i <span class="k">in</span> <span class="nv">$*</span>; <span class="k">do
+<span class="k">for </span>i <span class="k">in</span> <span class="nv">$*</span><span class="p">;</span> <span class="k">do
     </span><span class="nb">echo</span> <span class="nv">$i</span>
 <span class="k">done</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>If the file is made executable (<code class="highlighter-rouge">chmod u+x myscript.sh</code>), then it can be executed with <code class="highlighter-rouge">./myscript.sh</code>. You can take it one step further and insert it in your path.</p>
 
 <p>The shebang syntax can be used for any interpreted language, like for Python:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/usr/bin/env python</span>
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env python</span>
+</code></pre></div></div>
 
 <h1 id="wrapping-up">Wrapping up</h1>
 

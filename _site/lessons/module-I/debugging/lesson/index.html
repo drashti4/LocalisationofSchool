@@ -130,17 +130,15 @@ In reality, it is a very large topic with many different methodologies and steps
 
 <p>There are two forms of finding bugs: discovering their existence (testing), and searching for the cause in the code (finding). The debugging cycle typically goes</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>test -&gt; find -&gt; fix -&gt; test -&gt; ...
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>test -&gt; find -&gt; fix -&gt; test -&gt; ...
+</code></pre></div></div>
 
 <h2 id="testing">Testing</h2>
 
 <p>There’s a whole range of things that fall under testing, from running the program and seeing if it gives you the output you want to a full suite of unit tests run every time you commit your changes. In Python, the most common form of testing is through <em>interactive debugging</em> using the REPL.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># Demonstrate here
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Demonstrate here
+</code></pre></div></div>
 
 <p>The REPL has been a major feature of interpreted languages like Python for good reason: quick and dirty testing.</p>
 <ul>
@@ -155,7 +153,7 @@ In reality, it is a very large topic with many different methodologies and steps
 
 <p>As an example, let’s make a function that will split a list in the middle. It will take a list of arbitrary length, and return a tuple containing (first half, middle element, last half). We’ll follow a Test Driven Design (TDD) style, and create the tests first. This clearly defines the behaviour.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>import unittest
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import unittest
 
 class TestSplitter(unittest.TestCase):
 
@@ -166,20 +164,18 @@ class TestSplitter(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>A good testing suite should include a few examples of normal/expected input as well as any edge cases you can think of. Let’s fill in more tests now.</p>
 
 <p>Now, run the suite (which will get us into debugging/finding mode)</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>python test_splitter.py
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python test_splitter.py
 # or
 python -m unittest
 # or
 python -m unittest -v test_splitter
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>(The <code class="highlighter-rouge">unittest</code> module has <em>test discovery</em> that will search for tests in the current directory using some rules.)</p>
 
@@ -213,7 +209,7 @@ python -m unittest -v test_splitter
 
 <p>To use <code class="highlighter-rouge">pdb</code>, you first need to import it, and add the line <code class="highlighter-rouge">pdb.set_trace()</code> where you’d like to start doing introspection. e.g.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>import pdb
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import pdb
 
 def average(xs):
     pdb.set_trace()
@@ -222,8 +218,7 @@ def average(xs):
     for i in range(1, length):
         acc = acc + xs[i]
     return acc/length
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Next, when the execution is interrupted, use the commands</p>
 
@@ -253,13 +248,12 @@ def average(xs):
 
 <p>Using <code class="highlighter-rouge">logging.debug()</code> instead of <code class="highlighter-rouge">print()</code> lets you output the debugging statements to a file, instead of <code class="highlighter-rouge">stdout</code>. An example from the python docs,</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>import logging
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import logging
 logging.basicConfig(filename='example.log',level=logging.DEBUG)
 logging.debug('This message should go to the log file')
 logging.info('So should this')
 logging.warning('And this, too')
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Creating logs this way will also automatically format the messages (which you can customize). This is a good way to provide debugging data to your users, like warnings that their data is in the wrong format or that another function is better.</p>
 

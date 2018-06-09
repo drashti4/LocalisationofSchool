@@ -103,9 +103,8 @@ understand what is being explained. Check it out!</p>
 
 <p>So, briefly, developing R packages is done by running:</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">devtools</span><span class="o">::</span><span class="n">create</span><span class="p">(</span><span class="s1">'pkg_name'</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">devtools</span><span class="o">::</span><span class="n">create</span><span class="p">(</span><span class="s1">'pkg_name'</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
 <p>… Or by using the menu options <code class="highlighter-rouge">File -&gt; New Project -&gt; New Directory -&gt; R Package</code> in RStudio.</p>
 
@@ -125,11 +124,10 @@ development) and sets RStudio options.</li>
 
 <p>Make new R functions in the <code class="highlighter-rouge">R/</code> folder. A simple one can be created:</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">sum_nums</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="w"> </span><span class="n">arg2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sum_nums</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="w"> </span><span class="n">arg2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="n">arg1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">arg2</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>You can now access this function in the R console when developing the package by
 running <code class="highlighter-rouge">devtools::load_all()</code> or <code class="highlighter-rouge">Ctrl-Shift-L</code> in RStudio. Now, when you start
@@ -140,20 +138,18 @@ functions can be created this way.</p>
 <code class="highlighter-rouge">ggplot2</code>. R packages access these differently then when running interactively.
 You can’t include a <code class="highlighter-rouge">library()</code> statement in your R functions. So first you do:</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">devtools</span><span class="o">::</span><span class="n">use_package</span><span class="p">(</span><span class="s1">'dplyr'</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">devtools</span><span class="o">::</span><span class="n">use_package</span><span class="p">(</span><span class="s1">'dplyr'</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
 <p>This will output a message to the R console, telling you how to use the <code class="highlighter-rouge">dplyr</code>
 package functions. It also adds <code class="highlighter-rouge">dplyr</code> to the Import section of the DESCRIPTION
 file. You also need to prefix <code class="highlighter-rouge">dplyr::</code> to each <code class="highlighter-rouge">dplyr</code> function. So, if we
 create a new function:</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">filter_down</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">cutoff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">30</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">filter_down</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">cutoff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">30</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="n">dplyr</span><span class="o">::</span><span class="n">filter</span><span class="p">(</span><span class="n">swiss</span><span class="p">,</span><span class="w"> </span><span class="n">Agriculture</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">cutoff</span><span class="p">)</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>Hit <code class="highlighter-rouge">Ctrl-Shift-L</code> to run <code class="highlighter-rouge">devtools::load_all()</code> to access the new function. Now
 type in the console <code class="highlighter-rouge">filter_down(40)</code> and it will list off a filtered version of
@@ -165,19 +161,18 @@ the <code class="highlighter-rouge">swiss</code> dataset.</p>
 function and hit <code class="highlighter-rouge">Ctrl-Shift-Alt-R</code>. Something like this should be added to the
 function:</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="cd">#' Title
-#'
-#' @param cutoff 
-#'
-#' @return
-#' @export
-#'
-#' @examples
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cd">#' Title</span><span class="w">
+</span><span class="cd">#'</span><span class="w">
+</span><span class="cd">#' @param cutoff </span><span class="w">
+</span><span class="cd">#'</span><span class="w">
+</span><span class="cd">#' @return</span><span class="w">
+</span><span class="cd">#' @export</span><span class="w">
+</span><span class="cd">#'</span><span class="w">
+</span><span class="cd">#' @examples</span><span class="w">
 </span><span class="n">filter_down</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">cutoff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">30</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="n">dplyr</span><span class="o">::</span><span class="n">filter</span><span class="p">(</span><span class="n">swiss</span><span class="p">,</span><span class="w"> </span><span class="n">Agriculture</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">cutoff</span><span class="p">)</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>These tags are called <code class="highlighter-rouge">roxygen</code> document tags.</p>
 
@@ -204,26 +199,23 @@ you’ll be guaranteed to forget what your package does later in the future (it�
 happened to me many many times). So, to start writing up a vignette, type in the
 console:</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">devtools</span><span class="o">::</span><span class="n">use_vignette</span><span class="p">(</span><span class="s1">'introduction'</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">devtools</span><span class="o">::</span><span class="n">use_vignette</span><span class="p">(</span><span class="s1">'introduction'</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
 <p>This will create a <code class="highlighter-rouge">vignette/</code> folder and an 
 <a href="http://rmarkdown.rstudio.com/">R Markdown</a> file, where you can mix text, code, and
 code output for a polished tutorial on using your package. You can access this
 vignette when the package is installed by using:</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">vignette</span><span class="p">(</span><span class="s1">'introduction'</span><span class="p">,</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'your_package_name'</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">vignette</span><span class="p">(</span><span class="s1">'introduction'</span><span class="p">,</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'your_package_name'</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
 <h2 id="installing-your-package-and-other-bits">Installing your package and other bits</h2>
 
 <p>You can install your package by running:</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">devtools</span><span class="o">::</span><span class="n">install</span><span class="p">()</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">devtools</span><span class="o">::</span><span class="n">install</span><span class="p">()</span><span class="w">
+</span></code></pre></div></div>
 
 <p>This installs the package and lets you access the functions by using <code class="highlighter-rouge">library()</code>
 command.</p>

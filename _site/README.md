@@ -4,6 +4,7 @@ Welcome to our Den :dancers:
 
 Thank you for visiting our repo. :tada: This document will provide some information about our project.:information_desk_person: Everyone is welcome to collaborate and produce web literacy materials in your local language.
 
+[![alt text][1.1]][1]
 
 ## Contents
 
@@ -18,7 +19,7 @@ Thank you for visiting our repo. :tada: This document will provide some informat
 
  - Students in schools wants to know about Computer - Internet but they don't know how to use it in right way one of the reason is teachers also don't know how to operate computer so they can't teach them.
  
- - Our Mozilla volunteers make campaign like kidzilla, Women in web literacy but It require more time of them. They can not give more time from their personal time. It is not sustainable way of development neither for students nor for volunteers.
+ - Our volunteers make campaign like kidzilla, Women in web literacy but It require more time of them. They can not give more time from their personal time. It is not sustainable way of development neither for students nor for volunteers.
  
 ## Solution 
 
@@ -54,4 +55,5 @@ If you have any doubt, suggestion then you can [open issue](HTTPS://guides.githu
 
 Thank you so much for visiting this project. :hearts: We hope we can make some interest to you for joining our wonderful journey towards change in someone's life. :clap:
 
-
+[1.1]: http://i.imgur.com/tXSoThF.png (twitter icon with padding)
+[1]: http://www.twitter.com/carlsednaoui

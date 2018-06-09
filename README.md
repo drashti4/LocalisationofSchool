@@ -3,7 +3,7 @@
 Welcome to our Den :dancers: 
 
 Thank you for visiting our repo. :tada: This document will provide some information about our project.:information_desk_person: Everyone is welcome to collaborate and produce web literacy materials in your local language.
-
+Follow us on Twitter [![alt text][1.1]][1]
 
 ## Contents
 
@@ -54,4 +54,5 @@ If you have any doubt, suggestion then you can [open issue](HTTPS://guides.githu
 
 Thank you so much for visiting this project. :hearts: We hope we can make some interest to you for joining our wonderful journey towards change in someone's life. :clap:
 
-
+[1.1]: http://i.imgur.com/wWzX9uB.png (twitter icon with padding)
+[1]: https://twitter.com/joinlocalweb

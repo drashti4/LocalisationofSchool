@@ -158,9 +158,8 @@ Four main panels:</p>
 <p>Oh no, a wild error has appeared!
 Luckily, R gives us a great description of what went wrong and why:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Error in strsplit(word, "") : non-character argument 
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Error in strsplit(word, "") : non-character argument 
+</code></pre></div></div>
 
 <p>Hm. Or not.
 Let’s see what “Show Traceback” gives us.</p>
@@ -168,7 +167,7 @@ Let’s see what “Show Traceback” gives us.</p>
 <h3 id="stack">Stack</h3>
 <p>The “traceback” shows us the series of commands (aka “stack”) that led to the error.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code> Error in strsplit(word, "") : non-character argument 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Error in strsplit(word, "") : non-character argument 
 7 strsplit(word, "") at crazify.R#3
 6 reverseLetters(vec[i]) at crazify.R#19
 5 crazify("here i am") at crazify.R#24
@@ -177,8 +176,7 @@ Let’s see what “Show Traceback” gives us.</p>
 2 withVisible(eval(ei, envir)) 
 1 source("C:/Users/tvanrossum/Dropbox/ScientificProgrammingStudyGroupSFU/debuggerRMarkdownLesson/crazify.R", 
     echo = TRUE) 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Ok, so now we know where the script when wrong but the cause is still not clear. Let’s see what RStudio’s debugger can do for us.</p>
 
@@ -200,9 +198,8 @@ Let’s see what “Show Traceback” gives us.</p>
 <h1 id="challenge">Challenge</h1>
 
 <p>Try calling confuseTheCustomers() on the myMenu object in crazify.R:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>confuseTheCustomers(myMenu) 
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>confuseTheCustomers(myMenu) 
+</code></pre></div></div>
 
 <p>It fails! Try using the debugger to fix it.</p>
 

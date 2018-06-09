@@ -111,7 +111,7 @@ just like the famous packages <code class="highlighter-rouge">numpy</code> or <c
 
 <p>The most basic directory structure for a Python package looks like this:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>project
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project
 |
 |__ setup.py
 |
@@ -119,38 +119,34 @@ just like the famous packages <code class="highlighter-rouge">numpy</code> or <c
      |
      |_  somePython.py
      |_  __init__.py
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>But at the moment, we’ve just got some flat files.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>project
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project
 |
 |__ norms.py
 |__ metrics.py
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>So, the first step is to move files around. First comes the hardest part: choosing a package name. I’ll call mine <code class="highlighter-rouge">measure</code>. Create a directory with that name, and move the python files in there.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>project
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project
 |
 |__ measure
      |__ norms.py
      |__ metrics.py
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>There is one more crucial file: <code class="highlighter-rouge">__init__.py</code> lets the Python interpreter know that there are importable modules in this directory. This is the script that gets run when you execute <code class="highlighter-rouge">import measure</code>. For more about what you can do with modules, you can see the (Python docs)[https://docs.python.org/3/tutorial/modules.html]. After adding <code class="highlighter-rouge">__init__.py</code>, the project directory should be</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>project
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project
 |
 |__ measure
      |__ __init__.py
      |__ norms.py
      |__ metrics.py
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="2-setuppy">2. setup.py</h2>
 
@@ -158,17 +154,16 @@ just like the famous packages <code class="highlighter-rouge">numpy</code> or <c
 
 <p>A very basic version of <code class="highlighter-rouge">setup.py</code> is</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>from setuptools import setup
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from setuptools import setup
 
 setup(
     # Whatever arguments you need/want
 )
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>If you were to run that file, you’d get a whole bunch of warnings, and nothing would actually get packaged. As a bare minimum, here is our <code class="highlighter-rouge">setup.py</code> for it to work.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>from setuptools import setup
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from setuptools import setup
 
 setup(
     # Needed to silence warnings (and to be a worthwhile package)
@@ -188,8 +183,7 @@ setup(
     # We will also need a readme eventually (there will be a warning)
     # long_description=open('README.txt').read(),
 )
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="3-installing">3. Installing?</h2>
 
@@ -199,15 +193,13 @@ setup(
 
 <p>This is my preferred way of sharing/storing/installing packages. Simply create a git repo of the project directory, and put it somewhere. Then, use <code class="highlighter-rouge">pip</code> to install it from that repo directly</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pip install git+https://github.com/jladan/package_demo.git#egg=measurements
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install git+https://github.com/jladan/package_demo.git#egg=measurements
+</code></pre></div></div>
 
 <p>An advantage of this is that you can also install to particular branches, tags, and commits. A common practice is add a tag for the version release <code class="highlighter-rouge">git tag v0.1</code>. Users of the library can then lock into that particular version,</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pip install git+https://github.com/jladan/package_demo.git@v0.1#egg=measurements
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install git+https://github.com/jladan/package_demo.git@v0.1#egg=measurements
+</code></pre></div></div>
 
 <h3 id="distributing-via-pypi">Distributing via PyPI</h3>
 
@@ -221,9 +213,8 @@ and distributing through PyPI.</p>
 
 <p>For those interested, to upload to PyPI, you’ll need</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>python setup.py sdist
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python setup.py sdist
+</code></pre></div></div>
 
 <p>This creates a <code class="highlighter-rouge">dist</code> directory and adds an archive file (a.k.a. a distribution) of your package.</p>
 
@@ -231,21 +222,18 @@ and distributing through PyPI.</p>
 new package, <a href="https://pypi.python.org/pypi">make a new account on PyPI</a> (or for trying it out, the <a href="https://testpypi.python.org/pypi">testing PyPI site</a>), and
 then back in your <code class="highlighter-rouge">package</code> directory do</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>python setup.py register
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python setup.py register
+</code></pre></div></div>
 
 <p>to claim your package name - they must be unique. Then, upload your package; you’ll do this every time you want to release a new version of your code:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>python setup.py sdist upload
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python setup.py sdist upload
+</code></pre></div></div>
 
 <p>Now, you and anyone else in the world can install your package using the following:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pip install your-package-name
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install your-package-name
+</code></pre></div></div>
 
 <h2 id="4-document">4. Document!</h2>
 
@@ -256,15 +244,14 @@ then back in your <code class="highlighter-rouge">package</code> directory do</p
 <p>A readme file summarizes the software. For Python packages, this can named <code class="highlighter-rouge">README</code>, <code class="highlighter-rouge">README.rst</code>, or <code class="highlighter-rouge">README.txt</code>. The recommendation is to use [reST]
 (http://docutils.sourceforge.net/rst.html), as this is the standard on PyPI</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>===================
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>===================
 Measurements Module
 ===================
 
 **A demo for how to create a python package from existing code**
 
 The actual software provides L1, L2, Supremum, and Hamming metrics and norms for numpy arrays.
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="long-description">Long Description</h3>
 
@@ -286,30 +273,28 @@ The actual software provides L1, L2, Supremum, and Hamming metrics and norms for
 
 <p>There’s a further step required for distributing. If you want to include these files in the distribution (the archive file in <code class="highlighter-rouge">dist</code>), you’ll need a <code class="highlighter-rouge">MANIFEST.in</code> file.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># MANIFEST.in
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># MANIFEST.in
 
 include *.txt
 recursive-include docs *.rst
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="scripts">Scripts</h3>
 
 <p>Suppose you want to include a script that can be executed from the command line. Create a directory <code class="highlighter-rouge">scripts</code>, and put it there. Next, add the <code class="highlighter-rouge">scripts</code> argument to <code class="highlighter-rouge">setup.py</code></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>setup(
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setup(
     #...
     scripts = ['scripts/hello.py']
     # ...
 )
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="6-where-to-go-from-here">6. Where to go from here?</h2>
 
 <p>So, at this point, we’ve got a pretty good project skeleton, and most of the basics are covered. Your package should look something like this:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>project
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project
 |
 |__ setup.py
 |__ MANIFEST.in
@@ -331,8 +316,7 @@ recursive-include docs *.rst
 |__ README.txt
 |__ CHANGES.txt
 |__ LICENSE.txt
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>If you have software that covers all these points, then congratulations! You’re well on your way to a well-maintained software package.</p>
 

@@ -90,32 +90,29 @@
   <li><strong>Lesson content URL</strong>: <a href="https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/python/cartography">https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/python/cartography</a></li>
 </ul>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Default imports</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Default imports</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">nbagg</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-</code></pre>
-</div>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</code></pre></div></div>
 
 <h2 id="setup">Setup</h2>
 <p>We will be using Cartopy for this lesson, so let’s import that.
 The common convention is to import it as follows:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="kn">as</span> <span class="nn">ccrs</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="n">ccrs</span>
+</code></pre></div></div>
 
 <p>Let’s start with a simple plot of points:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">360</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">180</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">-</span> <span class="mi">90</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="../lesson_files/figure_1.png" alt="figure 1" /></p>
 
@@ -123,10 +120,9 @@ The common convention is to import it as follows:</p>
 Because that corresponds to the ranges for longitudes and latitudes!
 Let’s rename them.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">lon</span> <span class="o">=</span> <span class="n">x</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lon</span> <span class="o">=</span> <span class="n">x</span>
 <span class="n">lat</span> <span class="o">=</span> <span class="n">y</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="projections">Projections</h2>
 
@@ -151,12 +147,11 @@ We pass an instance of the projection class to the <code class="highlighter-roug
 argument of <code class="highlighter-rouge">Figure.add_subplot</code> to signify the projection in which the
 resulting map will be made.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
                      <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="../lesson_files/figure_2.png" alt="figure 2" /></p>
 
@@ -164,58 +159,53 @@ resulting map will be made.</p>
 
 <p>So far so good; let’s add some coast lines:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
                      <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="../lesson_files/figure_3.png" alt="figure 3" /></p>
 
 <p>Or how about a land/ocean image:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
                      <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">stock_img</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="../lesson_files/figure_4.png" alt="figure 4" /></p>
 
 <p>And maybe some grid lines:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
                      <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">stock_img</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="../lesson_files/figure_5.png" alt="figure 5" /></p>
 
 <p>This projection supports two arguments:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="err">?</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="err">?</span>
+</code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
                      <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=-</span><span class="mi">79</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">stock_img</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="../lesson_files/figure_6.png" alt="figure 6" /></p>
 
@@ -226,7 +216,7 @@ resulting map will be made.</p>
 It preserves angles and distances from the centre of the map.
 We’ll centre it on this building, 43.660924°N, 79.398329°W.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">to_lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">79.398329</span>  <span class="c"># East is positive.</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">to_lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">79.398329</span>  <span class="c"># East is positive.</span>
 <span class="n">to_lat</span> <span class="o">=</span> <span class="mf">43.660924</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
@@ -237,8 +227,7 @@ We’ll centre it on this building, 43.660924°N, 79.398329°W.</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">stock_img</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="../lesson_files/figure_7.png" alt="figure 7" /></p>
 
@@ -257,7 +246,7 @@ approximately 40,000 <em>km</em>.)</p>
 to <code class="highlighter-rouge">ax.scatter</code>. In this case, we use the Geodetic projection for the points.
 This projection is basically longitude/latitude.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
                      <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">AzimuthalEquidistant</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=</span><span class="n">to_lon</span><span class="p">,</span>
                                                           <span class="n">central_latitude</span><span class="o">=</span><span class="n">to_lat</span><span class="p">))</span>
@@ -266,15 +255,14 @@ This projection is basically longitude/latitude.</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">stock_img</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="../lesson_files/figure_8.png" alt="figure 8" /></p>
 
 <p>What’s the difference between Plate Carrée and Geodetic?
 Let’s look at a map:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">ff_lon</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">41</span> <span class="o">/</span> <span class="mi">60</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ff_lon</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">41</span> <span class="o">/</span> <span class="mi">60</span>
 <span class="n">ff_lat</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">+</span> <span class="mi">7</span> <span class="o">/</span> <span class="mi">60</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
@@ -288,8 +276,7 @@ Let’s look at a map:</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">stock_img</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="../lesson_files/figure_9.png" alt="figure 9" /></p>
 
@@ -307,7 +294,7 @@ We’ll use their recommended standard parallels (see wiki link for explanation)
 49°N and 77°N, and a central longitude of 91°52’W. The boundaries are arbitrarily
 chosen to be 63°W to 123°W and 37°N to 75°N, and set with <code class="highlighter-rouge">ax.set_extent</code>.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># An arbitrary choice.</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># An arbitrary choice.</span>
 <span class="n">canada_east</span> <span class="o">=</span> <span class="o">-</span><span class="mi">63</span>
 <span class="n">canada_west</span> <span class="o">=</span> <span class="o">-</span><span class="mi">123</span>
 <span class="n">canada_north</span> <span class="o">=</span> <span class="mi">75</span>
@@ -324,8 +311,7 @@ chosen to be 63°W to 123°W and 37°N to 75°N, and set with <code class="highl
 <span class="n">ax</span><span class="o">.</span><span class="n">stock_img</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="../lesson_files/figure_10.png" alt="figure 10" /></p>
 
@@ -342,11 +328,10 @@ are provided in the <code class="highlighter-rouge">cartopy.feature</code> modul
 These are downloaded and cached on the fly, so there may be some issues if the
 WiFi is being flaky in MP408.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">cartopy.feature</span> <span class="kn">as</span> <span class="nn">cfeature</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">cartopy.feature</span> <span class="k">as</span> <span class="n">cfeature</span>
+</code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
                      <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">LambertConformal</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=</span><span class="n">central_longitude</span><span class="p">,</span>
                                                       <span class="n">standard_parallels</span><span class="o">=</span><span class="n">standard_parallels</span><span class="p">))</span>
@@ -358,8 +343,7 @@ WiFi is being flaky in MP408.</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">BORDERS</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">COASTLINE</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">RIVERS</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="../lesson_files/figure_11.png" alt="figure 11" /></p>
 
@@ -368,7 +352,7 @@ something a bit higher resolution? Well, the above were just shortcuts
 and we can use <code class="highlighter-rouge">cfeature.NaturalEarthFeature</code> directly with its
 <code class="highlighter-rouge">scale</code> argument.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">land_50m</span> <span class="o">=</span> <span class="n">cfeature</span><span class="o">.</span><span class="n">NaturalEarthFeature</span><span class="p">(</span><span class="s">'physical'</span><span class="p">,</span> <span class="s">'land'</span><span class="p">,</span> <span class="s">'50m'</span><span class="p">,</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">land_50m</span> <span class="o">=</span> <span class="n">cfeature</span><span class="o">.</span><span class="n">NaturalEarthFeature</span><span class="p">(</span><span class="s">'physical'</span><span class="p">,</span> <span class="s">'land'</span><span class="p">,</span> <span class="s">'50m'</span><span class="p">,</span>
                                         <span class="n">edgecolor</span><span class="o">=</span><span class="s">'k'</span><span class="p">,</span>
                                         <span class="n">facecolor</span><span class="o">=</span><span class="n">cfeature</span><span class="o">.</span><span class="n">COLORS</span><span class="p">[</span><span class="s">'land'</span><span class="p">])</span>
 
@@ -384,15 +368,14 @@ and we can use <code class="highlighter-rouge">cfeature.NaturalEarthFeature</cod
 <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">BORDERS</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">COASTLINE</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">RIVERS</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="../lesson_files/figure_12.png" alt="figure 12" /></p>
 
 <p>Now, let’s add the provinces and states (the possible names as used here
 can be determined by visiting the link above):</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">provinces_50m</span> <span class="o">=</span> <span class="n">cfeature</span><span class="o">.</span><span class="n">NaturalEarthFeature</span><span class="p">(</span><span class="s">'cultural'</span><span class="p">,</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">provinces_50m</span> <span class="o">=</span> <span class="n">cfeature</span><span class="o">.</span><span class="n">NaturalEarthFeature</span><span class="p">(</span><span class="s">'cultural'</span><span class="p">,</span>
                                              <span class="s">'admin_1_states_provinces_lines'</span><span class="p">,</span>
                                              <span class="s">'50m'</span><span class="p">,</span>
                                              <span class="n">facecolor</span><span class="o">=</span><span class="s">'none'</span><span class="p">)</span>
@@ -410,8 +393,7 @@ can be determined by visiting the link above):</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">COASTLINE</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">RIVERS</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">provinces_50m</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="../lesson_files/figure_13.png" alt="figure 13" /></p>
 
@@ -423,7 +405,7 @@ interface.</p>
 
 <p>These can be added by <code class="highlighter-rouge">ax.add_wms</code> and <code class="highlighter-rouge">ax.add_wmts</code>.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
                      <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">LambertConformal</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=</span><span class="n">central_longitude</span><span class="p">,</span>
                                                       <span class="n">standard_parallels</span><span class="o">=</span><span class="n">standard_parallels</span><span class="p">))</span>
@@ -432,15 +414,14 @@ interface.</p>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">add_wms</span><span class="p">(</span><span class="n">wms</span><span class="o">=</span><span class="s">'http://vmap0.tiles.osgeo.org/wms/vmap0'</span><span class="p">,</span>
            <span class="n">layers</span><span class="o">=</span><span class="p">[</span><span class="s">'basic'</span><span class="p">])</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="../lesson_files/figure_14.png" alt="figure 14" /></p>
 
 <p>Unfortunately, WMTS doesn’t support reprojection in 0.14, but it will
 in the next release 0.15, so we need to use Plate Carrée for this map.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">url</span> <span class="o">=</span> <span class="s">'https://map1c.vis.earthdata.nasa.gov/wmts-geo/wmts.cgi'</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">url</span> <span class="o">=</span> <span class="s">'https://map1c.vis.earthdata.nasa.gov/wmts-geo/wmts.cgi'</span>
 <span class="n">layer</span> <span class="o">=</span> <span class="s">'VIIRS_CityLights_2012'</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
@@ -449,8 +430,7 @@ in the next release 0.15, so we need to use Plate Carrée for this map.</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_extent</span><span class="p">([</span><span class="n">canada_west</span><span class="p">,</span> <span class="n">canada_east</span><span class="p">,</span> <span class="n">canada_south</span><span class="p">,</span> <span class="n">canada_north</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">add_wmts</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">layer</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="../lesson_files/figure_15.png" alt="figure 15" /></p>
 
@@ -460,17 +440,15 @@ in the next release 0.15, so we need to use Plate Carrée for this map.</p>
 shapefile from somewhere outlining something. These can be read
 with <code class="highlighter-rouge">cartopy.io.shapereader.Reader</code>.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">cartopy.io.shapereader</span> <span class="kn">import</span> <span class="n">Reader</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">cartopy.io.shapereader</span> <span class="kn">import</span> <span class="n">Reader</span>
+</code></pre></div></div>
 
 <p>We will use the data files provided with the lesson here:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="s">'icitw_wgs84'</span><span class="p">)</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="s">'icitw_wgs84'</span><span class="p">)</span>
+</code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
                      <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">LambertConformal</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=</span><span class="n">central_longitude</span><span class="p">,</span>
                                                       <span class="n">standard_parallels</span><span class="o">=</span><span class="n">standard_parallels</span><span class="p">))</span>
@@ -478,8 +456,7 @@ with <code class="highlighter-rouge">cartopy.io.shapereader.Reader</code>.</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">()</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">add_geometries</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">geometries</span><span class="p">(),</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Geodetic</span><span class="p">(),</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s">'k'</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">'none'</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="../lesson_files/figure_16.png" alt="figure 16" /></p>
 
@@ -490,22 +467,19 @@ on which we can do things like determine if points are contained. We won’t
 really go into any details of it here, though. The example below is just a
 quick one-off to show how it might be used.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">shapely.geometry</span> <span class="kn">as</span> <span class="nn">sgeom</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">shapely.geometry</span> <span class="k">as</span> <span class="n">sgeom</span>
+</code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">ward</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">geometries</span><span class="p">())</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ward</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">geometries</span><span class="p">())</span>
 
 <span class="n">us</span> <span class="o">=</span> <span class="n">sgeom</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="n">to_lon</span><span class="p">,</span> <span class="n">to_lat</span><span class="p">)</span>
 <span class="n">ward</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">us</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="bp">False</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="bp">False</span>
+</code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
                      <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">LambertConformal</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=</span><span class="n">central_longitude</span><span class="p">,</span>
                                                       <span class="n">standard_parallels</span><span class="o">=</span><span class="n">standard_parallels</span><span class="p">))</span>
@@ -518,63 +492,54 @@ quick one-off to show how it might be used.</p>
         <span class="n">ax</span><span class="o">.</span><span class="n">add_geometries</span><span class="p">(</span><span class="n">our_ward</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Geodetic</span><span class="p">(),</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s">'k'</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">'r'</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">add_geometries</span><span class="p">(</span><span class="n">ward</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Geodetic</span><span class="p">(),</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s">'k'</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">'none'</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="../lesson_files/figure_17.png" alt="figure 17" /></p>
 
 <p>What happened here? It turns out that the ward data is a bit buggy,
 and each ward is <em>not</em> a closed polygon.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">our_ward</span><span class="o">.</span><span class="n">is_closed</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">our_ward</span><span class="o">.</span><span class="n">is_closed</span>
+</code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="bp">False</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="bp">False</span>
+</code></pre></div></div>
 
 <p>Shapely will nicely render its contents in a notebook:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">our_ward</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">our_ward</span>
+</code></pre></div></div>
 
 <p><img src="../lesson_files/lesson_51_0.svg" alt="svg" /></p>
 
 <p>The type can be found from the <code class="highlighter-rouge">geom_type</code> property:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">our_ward</span><span class="o">.</span><span class="n">geom_type</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">our_ward</span><span class="o">.</span><span class="n">geom_type</span>
+</code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="s">'MultiPolygon'</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'MultiPolygon'</span>
+</code></pre></div></div>
 
 <p><code class="highlighter-rouge">MultiPolygon</code> contains multiple polygons, but fortunately, there’s just the one.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="nb">len</span><span class="p">(</span><span class="n">our_ward</span><span class="p">)</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">len</span><span class="p">(</span><span class="n">our_ward</span><span class="p">)</span>
+</code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="mi">1</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span>
+</code></pre></div></div>
 
 <p>We’ll construct a “linear ring” (basically a closed shape) from
 the data in the first polygon.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">sgeom</span><span class="o">.</span><span class="n">LinearRing</span><span class="p">(</span><span class="n">our_ward</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sgeom</span><span class="o">.</span><span class="n">LinearRing</span><span class="p">(</span><span class="n">our_ward</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p><img src="../lesson_files/lesson_57_0.svg" alt="svg" /></p>
 
 <p>And if we use that in our plot, the fill colour will no longer “spill” out
 over the rest of the map.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
                      <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">LambertConformal</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=</span><span class="n">central_longitude</span><span class="p">,</span>
                                                       <span class="n">standard_parallels</span><span class="o">=</span><span class="n">standard_parallels</span><span class="p">))</span>
@@ -588,8 +553,7 @@ over the rest of the map.</p>
         <span class="n">ax</span><span class="o">.</span><span class="n">add_geometries</span><span class="p">(</span><span class="n">our_ward</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Geodetic</span><span class="p">(),</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s">'k'</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">'r'</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">add_geometries</span><span class="p">(</span><span class="n">ward</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Geodetic</span><span class="p">(),</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s">'k'</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">'none'</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="../lesson_files/figure_18.png" alt="figure 18" /></p>
 

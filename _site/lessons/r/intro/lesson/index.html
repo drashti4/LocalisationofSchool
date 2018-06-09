@@ -155,7 +155,7 @@ Word doc files from the <code class="highlighter-rouge">.md</code> file using th
 <a href="https://en.wikipedia.org/wiki/YAML">YAML</a> front matter, which looks
 like:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>---
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
 title: "Introduction to R"
 author: "Luke Johnston"
 date: "July 23, 2015"
@@ -167,8 +167,7 @@ output:
     toc: yes
     
 ---
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Note the starting and ending <code class="highlighter-rouge">---</code> ‘tags’.  This starts the YAML
 block.</p>
@@ -186,10 +185,9 @@ command of interest (eg. <code class="highlighter-rouge">?write.csv</code>).  R 
 datasets that you can practice on.  The one I’m going to use is the
 <code class="highlighter-rouge">swiss</code> dataset.</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">write.csv</span><span class="p">(</span><span class="n">swiss</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'swiss.csv'</span><span class="p">)</span><span class="w"> </span><span class="c1"># Export
-</span><span class="n">ds</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.csv</span><span class="p">(</span><span class="s1">'swiss.csv'</span><span class="p">)</span><span class="w"> </span><span class="c1"># Import
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">write.csv</span><span class="p">(</span><span class="n">swiss</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'swiss.csv'</span><span class="p">)</span><span class="w"> </span><span class="c1"># Export</span><span class="w">
+</span><span class="n">ds</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.csv</span><span class="p">(</span><span class="s1">'swiss.csv'</span><span class="p">)</span><span class="w"> </span><span class="c1"># Import</span><span class="w">
+</span></code></pre></div></div>
 
 <h1 id="viewing-your-data">Viewing your data</h1>
 
@@ -204,11 +202,10 @@ the top level name of the object, so eg. while a data.frame contains
 multiple columns that <code class="highlighter-rouge">str()</code> would show, <code class="highlighter-rouge">class()</code> would only show
 that the object is a “data.frame”.</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">head</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">head</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>##              X Fertility Agriculture Examination Education Catholic
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>##              X Fertility Agriculture Examination Education Catholic
 ## 1   Courtelary      80.2        17.0          15        12     9.96
 ## 2     Delemont      83.1        45.1           6         9    84.84
 ## 3 Franches-Mnt      92.5        39.7           5         5    93.40
@@ -222,24 +219,20 @@ that the object is a “data.frame”.</p>
 ## 4             20.3
 ## 5             20.6
 ## 6             26.6
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="nf">names</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">names</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## [1] "X"                "Fertility"        "Agriculture"     
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## [1] "X"                "Fertility"        "Agriculture"     
 ## [4] "Examination"      "Education"        "Catholic"        
 ## [7] "Infant.Mortality"
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">str</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">str</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## 'data.frame':	47 obs. of  7 variables:
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## 'data.frame':	47 obs. of  7 variables:
 ##  $ X               : Factor w/ 47 levels "Aigle","Aubonne",..: 8 9 12 26 28 34 5 13 15 38 ...
 ##  $ Fertility       : num  80.2 83.1 92.5 85.8 76.9 76.1 83.8 92.4 82.4 82.9 ...
 ##  $ Agriculture     : num  17 45.1 39.7 36.5 43.5 35.3 70.2 67.8 53.3 45.2 ...
@@ -247,14 +240,12 @@ that the object is a “data.frame”.</p>
 ##  $ Education       : int  12 9 5 7 15 7 7 8 7 13 ...
 ##  $ Catholic        : num  9.96 84.84 93.4 33.77 5.16 ...
 ##  $ Infant.Mortality: num  22.2 22.2 20.2 20.3 20.6 26.6 23.6 24.9 21 24.4 ...
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">summary</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">summary</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>##         X        Fertility      Agriculture     Examination   
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>##         X        Fertility      Agriculture     Examination   
 ##  Aigle   : 1   Min.   :35.00   Min.   : 1.20   Min.   : 3.00  
 ##  Aubonne : 1   1st Qu.:64.70   1st Qu.:35.90   1st Qu.:12.00  
 ##  Avenches: 1   Median :70.40   Median :54.10   Median :16.00  
@@ -270,16 +261,13 @@ that the object is a “data.frame”.</p>
 ##  3rd Qu.:12.00   3rd Qu.: 93.125   3rd Qu.:21.70   
 ##  Max.   :53.00   Max.   :100.000   Max.   :26.60   
 ## 
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="nf">class</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">class</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## [1] "data.frame"
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## [1] "data.frame"
+</code></pre></div></div>
 
 <h1 id="wrangling-your-data">Wrangling your data</h1>
 
@@ -296,32 +284,27 @@ object represents the output from the pipe, but it doesn’t have to be
 used as using <code class="highlighter-rouge">%&gt;%</code> implies also using <code class="highlighter-rouge">.</code>.  <code class="highlighter-rouge">tbl_df</code> makes the object
 into a <code class="highlighter-rouge">tbl</code> class, making printing of the output nicer.</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## 
 ## Attaching package: 'dplyr'
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## The following objects are masked from 'package:stats':
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## The following objects are masked from 'package:stats':
 ## 
 ##     filter, lag
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## The following objects are masked from 'package:base':
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## The following objects are masked from 'package:base':
 ## 
 ##     intersect, setdiff, setequal, union
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">tbl_df</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tbl_df</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 47 x 7
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 47 x 7
 ##               X Fertility Agriculture Examination Education Catholic
 ##          &lt;fctr&gt;     &lt;dbl&gt;       &lt;dbl&gt;       &lt;int&gt;     &lt;int&gt;    &lt;dbl&gt;
 ## 1    Courtelary      80.2        17.0          15        12     9.96
@@ -335,14 +318,12 @@ into a <code class="highlighter-rouge">tbl</code> class, making printing of the 
 ## 9       Gruyere      82.4        53.3          12         7    97.67
 ## 10       Sarine      82.9        45.2          16        13    91.38
 ## # ... with 37 more rows, and 1 more variables: Infant.Mortality &lt;dbl&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">ds</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">tbl_df</span><span class="p">()</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ds</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">tbl_df</span><span class="p">()</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 47 x 7
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 47 x 7
 ##               X Fertility Agriculture Examination Education Catholic
 ##          &lt;fctr&gt;     &lt;dbl&gt;       &lt;dbl&gt;       &lt;int&gt;     &lt;int&gt;    &lt;dbl&gt;
 ## 1    Courtelary      80.2        17.0          15        12     9.96
@@ -356,14 +337,12 @@ into a <code class="highlighter-rouge">tbl</code> class, making printing of the 
 ## 9       Gruyere      82.4        53.3          12         7    97.67
 ## 10       Sarine      82.9        45.2          16        13    91.38
 ## # ... with 37 more rows, and 1 more variables: Infant.Mortality &lt;dbl&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">ds</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">tbl_df</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ds</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">tbl_df</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 47 x 7
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 47 x 7
 ##               X Fertility Agriculture Examination Education Catholic
 ##          &lt;fctr&gt;     &lt;dbl&gt;       &lt;dbl&gt;       &lt;int&gt;     &lt;int&gt;    &lt;dbl&gt;
 ## 1    Courtelary      80.2        17.0          15        12     9.96
@@ -377,14 +356,12 @@ into a <code class="highlighter-rouge">tbl</code> class, making printing of the 
 ## 9       Gruyere      82.4        53.3          12         7    97.67
 ## 10       Sarine      82.9        45.2          16        13    91.38
 ## # ... with 37 more rows, and 1 more variables: Infant.Mortality &lt;dbl&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">ds</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">tbl_df</span><span class="p">(</span><span class="n">.</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ds</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">tbl_df</span><span class="p">(</span><span class="n">.</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 47 x 7
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 47 x 7
 ##               X Fertility Agriculture Examination Education Catholic
 ##          &lt;fctr&gt;     &lt;dbl&gt;       &lt;dbl&gt;       &lt;int&gt;     &lt;int&gt;    &lt;dbl&gt;
 ## 1    Courtelary      80.2        17.0          15        12     9.96
@@ -398,22 +375,19 @@ into a <code class="highlighter-rouge">tbl</code> class, making printing of the 
 ## 9       Gruyere      82.4        53.3          12         7    97.67
 ## 10       Sarine      82.9        45.2          16        13    91.38
 ## # ... with 37 more rows, and 1 more variables: Infant.Mortality &lt;dbl&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">## Let's put it into a new object
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## Let's put it into a new object</span><span class="w">
 </span><span class="n">ds2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">tbl_df</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>Again, these next lines are the same. <code class="highlighter-rouge">select</code> does as it says: select
 the column from the dataset.</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">select</span><span class="p">(</span><span class="n">ds2</span><span class="p">,</span><span class="w"> </span><span class="n">Education</span><span class="p">,</span><span class="w"> </span><span class="n">Catholic</span><span class="p">,</span><span class="w"> </span><span class="n">Fertility</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">select</span><span class="p">(</span><span class="n">ds2</span><span class="p">,</span><span class="w"> </span><span class="n">Education</span><span class="p">,</span><span class="w"> </span><span class="n">Catholic</span><span class="p">,</span><span class="w"> </span><span class="n">Fertility</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 47 x 3
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 47 x 3
 ##    Education Catholic Fertility
 ##        &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt;
 ## 1         12     9.96      80.2
@@ -427,14 +401,12 @@ the column from the dataset.</p>
 ## 9          7    97.67      82.4
 ## 10        13    91.38      82.9
 ## # ... with 37 more rows
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">select</span><span class="p">(</span><span class="n">Education</span><span class="p">,</span><span class="w"> </span><span class="n">Catholic</span><span class="p">,</span><span class="w"> </span><span class="n">Fertility</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">select</span><span class="p">(</span><span class="n">Education</span><span class="p">,</span><span class="w"> </span><span class="n">Catholic</span><span class="p">,</span><span class="w"> </span><span class="n">Fertility</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 47 x 3
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 47 x 3
 ##    Education Catholic Fertility
 ##        &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt;
 ## 1         12     9.96      80.2
@@ -448,14 +420,12 @@ the column from the dataset.</p>
 ## 9          7    97.67      82.4
 ## 10        13    91.38      82.9
 ## # ... with 37 more rows
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">select</span><span class="p">(</span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="n">Education</span><span class="p">,</span><span class="w"> </span><span class="n">Catholic</span><span class="p">,</span><span class="w"> </span><span class="n">Fertility</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">select</span><span class="p">(</span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="n">Education</span><span class="p">,</span><span class="w"> </span><span class="n">Catholic</span><span class="p">,</span><span class="w"> </span><span class="n">Fertility</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 47 x 3
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 47 x 3
 ##    Education Catholic Fertility
 ##        &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt;
 ## 1         12     9.96      80.2
@@ -469,19 +439,17 @@ the column from the dataset.</p>
 ## 9          7    97.67      82.4
 ## 10        13    91.38      82.9
 ## # ... with 37 more rows
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>You can rename columns either using <code class="highlighter-rouge">rename</code> or <code class="highlighter-rouge">select</code> (the new name
 is on the left hand side, so <code class="highlighter-rouge">newname = oldname</code>).  However, with the
 <code class="highlighter-rouge">select</code> command, only that column gets selected, while <code class="highlighter-rouge">rename</code>
 selects all columns.</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">rename</span><span class="p">(</span><span class="n">County</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">rename</span><span class="p">(</span><span class="n">County</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 47 x 7
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 47 x 7
 ##          County Fertility Agriculture Examination Education Catholic
 ##          &lt;fctr&gt;     &lt;dbl&gt;       &lt;dbl&gt;       &lt;int&gt;     &lt;int&gt;    &lt;dbl&gt;
 ## 1    Courtelary      80.2        17.0          15        12     9.96
@@ -495,14 +463,12 @@ selects all columns.</p>
 ## 9       Gruyere      82.4        53.3          12         7    97.67
 ## 10       Sarine      82.9        45.2          16        13    91.38
 ## # ... with 37 more rows, and 1 more variables: Infant.Mortality &lt;dbl&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">select</span><span class="p">(</span><span class="n">County</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">select</span><span class="p">(</span><span class="n">County</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 47 x 1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 47 x 1
 ##          County
 ##          &lt;fctr&gt;
 ## 1    Courtelary
@@ -516,80 +482,70 @@ selects all columns.</p>
 ## 9       Gruyere
 ## 10       Sarine
 ## # ... with 37 more rows
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>You can subset the dataset using <code class="highlighter-rouge">filter</code>.  Note the double equal sign
 <code class="highlighter-rouge">==</code> for testing if ‘Examination’ is equal to 15.  A single <code class="highlighter-rouge">=</code> is
 used for something else (assigning things to objects).</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">filter</span><span class="p">(</span><span class="n">ds2</span><span class="p">,</span><span class="w"> </span><span class="n">Catholic</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">Examination</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">15</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">filter</span><span class="p">(</span><span class="n">ds2</span><span class="p">,</span><span class="w"> </span><span class="n">Catholic</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">Examination</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">15</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 3 x 7
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 3 x 7
 ##            X Fertility Agriculture Examination Education Catholic
 ##       &lt;fctr&gt;     &lt;dbl&gt;       &lt;dbl&gt;       &lt;int&gt;     &lt;int&gt;    &lt;dbl&gt;
 ## 1 Courtelary      80.2        17.0          15        12     9.96
 ## 2    Yverdon      65.4        49.5          15         8     6.10
 ## 3 Val de Ruz      77.6        37.6          15         7     4.97
 ## # ... with 1 more variables: Infant.Mortality &lt;dbl&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">filter</span><span class="p">(</span><span class="n">Catholic</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">Examination</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">15</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">filter</span><span class="p">(</span><span class="n">Catholic</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">Examination</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">15</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 3 x 7
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 3 x 7
 ##            X Fertility Agriculture Examination Education Catholic
 ##       &lt;fctr&gt;     &lt;dbl&gt;       &lt;dbl&gt;       &lt;int&gt;     &lt;int&gt;    &lt;dbl&gt;
 ## 1 Courtelary      80.2        17.0          15        12     9.96
 ## 2    Yverdon      65.4        49.5          15         8     6.10
 ## 3 Val de Ruz      77.6        37.6          15         7     4.97
 ## # ... with 1 more variables: Infant.Mortality &lt;dbl&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">filter</span><span class="p">(</span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="n">Catholic</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">Examination</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">15</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">filter</span><span class="p">(</span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="n">Catholic</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">Examination</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">15</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 3 x 7
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 3 x 7
 ##            X Fertility Agriculture Examination Education Catholic
 ##       &lt;fctr&gt;     &lt;dbl&gt;       &lt;dbl&gt;       &lt;int&gt;     &lt;int&gt;    &lt;dbl&gt;
 ## 1 Courtelary      80.2        17.0          15        12     9.96
 ## 2    Yverdon      65.4        49.5          15         8     6.10
 ## 3 Val de Ruz      77.6        37.6          15         7     4.97
 ## # ... with 1 more variables: Infant.Mortality &lt;dbl&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">## For string/factor variables
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## For string/factor variables</span><span class="w">
 </span><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">filter</span><span class="p">(</span><span class="n">X</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'Aigle'</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 1 x 7
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 1 x 7
 ##        X Fertility Agriculture Examination Education Catholic
 ##   &lt;fctr&gt;     &lt;dbl&gt;       &lt;dbl&gt;       &lt;int&gt;     &lt;int&gt;    &lt;dbl&gt;
 ## 1  Aigle      64.1          62          21        12     8.52
 ## # ... with 1 more variables: Infant.Mortality &lt;dbl&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>We can start chaining these commands together using the <code class="highlighter-rouge">%&gt;%</code> command.
 There is no limit to how long a chain can be.  <code class="highlighter-rouge">arrange</code>
 sorts/orders/re-arranges the column Education in ascending
 order. <code class="highlighter-rouge">mutate</code> creates a new column.</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">filter</span><span class="p">(</span><span class="n">Catholic</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">20</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">select</span><span class="p">(</span><span class="n">Education</span><span class="p">,</span><span class="w"> </span><span class="n">Fertility</span><span class="p">)</span><span class="w"> 
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 21 x 2
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 21 x 2
 ##    Education Fertility
 ##        &lt;int&gt;     &lt;dbl&gt;
 ## 1          9      83.1
@@ -603,20 +559,18 @@ order. <code class="highlighter-rouge">mutate</code> creates a new column.</p>
 ## 9          6      87.1
 ## 10         2      68.3
 ## # ... with 11 more rows
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">filter</span><span class="p">(</span><span class="n">Catholic</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">20</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">select</span><span class="p">(</span><span class="n">County</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Education</span><span class="p">,</span><span class="w"> </span><span class="n">Fertility</span><span class="p">,</span><span class="w"> </span><span class="n">Agriculture</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">arrange</span><span class="p">(</span><span class="n">Education</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">mutate</span><span class="p">(</span><span class="n">infertile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ifelse</span><span class="p">(</span><span class="n">Fertility</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">50</span><span class="p">,</span><span class="w"> </span><span class="s1">'yes'</span><span class="p">,</span><span class="w"> </span><span class="s1">'no'</span><span class="p">),</span><span class="w">
-         </span><span class="n">testing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Yes'</span><span class="w"> </span><span class="c1">## Create a testing column to show how mutate works.
-</span><span class="w">         </span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+         </span><span class="n">testing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Yes'</span><span class="w"> </span><span class="c1">## Create a testing column to show how mutate works.</span><span class="w">
+         </span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 21 x 6
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 21 x 6
 ##          County Education Fertility Agriculture infertile testing
 ##          &lt;fctr&gt;     &lt;int&gt;     &lt;dbl&gt;       &lt;dbl&gt;     &lt;chr&gt;   &lt;chr&gt;
 ## 1     Echallens         2      68.3        72.6        no     Yes
@@ -630,23 +584,21 @@ order. <code class="highlighter-rouge">mutate</code> creates a new column.</p>
 ## 9      Martigwy         6      70.5        78.2        no     Yes
 ## 10      Moutier         7      85.8        36.5        no     Yes
 ## # ... with 11 more rows
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>To get the data into a nicer and more analyable format, you can use
 the <code class="highlighter-rouge">tidyr</code> package.  See what <code class="highlighter-rouge">gather</code> does in the code below.  Then
 see what <code class="highlighter-rouge">spread</code> does.  Note that you can remove a column by having a
 minus <code class="highlighter-rouge">-</code> sign in front of a variable when you use <code class="highlighter-rouge">select</code>.</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">tidyr</span><span class="p">)</span><span class="w">
-</span><span class="c1">## Compare this:
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">tidyr</span><span class="p">)</span><span class="w">
+</span><span class="c1">## Compare this:</span><span class="w">
 </span><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">select</span><span class="p">(</span><span class="o">-</span><span class="n">Infant.Mortality</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">rename</span><span class="p">(</span><span class="n">County</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 47 x 6
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 47 x 6
 ##          County Fertility Agriculture Examination Education Catholic
 ##          &lt;fctr&gt;     &lt;dbl&gt;       &lt;dbl&gt;       &lt;int&gt;     &lt;int&gt;    &lt;dbl&gt;
 ## 1    Courtelary      80.2        17.0          15        12     9.96
@@ -660,18 +612,16 @@ minus <code class="highlighter-rouge">-</code> sign in front of a variable when 
 ## 9       Gruyere      82.4        53.3          12         7    97.67
 ## 10       Sarine      82.9        45.2          16        13    91.38
 ## # ... with 37 more rows
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">## With this:
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## With this:</span><span class="w">
 </span><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">select</span><span class="p">(</span><span class="o">-</span><span class="n">Infant.Mortality</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">rename</span><span class="p">(</span><span class="n">County</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">gather</span><span class="p">(</span><span class="n">Measure</span><span class="p">,</span><span class="w"> </span><span class="n">Value</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">County</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 235 x 3
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 235 x 3
 ##          County   Measure Value
 ##          &lt;fctr&gt;     &lt;chr&gt; &lt;dbl&gt;
 ## 1    Courtelary Fertility  80.2
@@ -685,19 +635,17 @@ minus <code class="highlighter-rouge">-</code> sign in front of a variable when 
 ## 9       Gruyere Fertility  82.4
 ## 10       Sarine Fertility  82.9
 ## # ... with 225 more rows
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">## And back again:
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## And back again:</span><span class="w">
 </span><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">select</span><span class="p">(</span><span class="o">-</span><span class="n">Infant.Mortality</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">rename</span><span class="p">(</span><span class="n">County</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">gather</span><span class="p">(</span><span class="n">Measure</span><span class="p">,</span><span class="w"> </span><span class="n">Value</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">County</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">spread</span><span class="p">(</span><span class="n">Measure</span><span class="p">,</span><span class="w"> </span><span class="n">Value</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 47 x 6
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 47 x 6
 ##        County Agriculture Catholic Education Examination Fertility
 ## *      &lt;fctr&gt;       &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;
 ## 1       Aigle        62.0     8.52        12          21      64.1
@@ -711,8 +659,7 @@ minus <code class="highlighter-rouge">-</code> sign in front of a variable when 
 ## 9    Delemont        45.1    84.84         9           6      83.1
 ## 10  Echallens        72.6    24.20         2          18      68.3
 ## # ... with 37 more rows
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Combined with <code class="highlighter-rouge">dplyr</code>’s <code class="highlighter-rouge">group_by</code> and <code class="highlighter-rouge">summarise</code> you can quickly
 summarise data or do further, more complicated analyses. <code class="highlighter-rouge">group_by</code>
@@ -720,15 +667,14 @@ makes it so further analyses or operations work on the groups.
 <code class="highlighter-rouge">summarise</code> transforms the data to only contain the new variable(s)
 created, in this case the mean.</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">select</span><span class="p">(</span><span class="o">-</span><span class="n">X</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">gather</span><span class="p">(</span><span class="n">Measure</span><span class="p">,</span><span class="w"> </span><span class="n">Value</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">group_by</span><span class="p">(</span><span class="n">Measure</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">summarise</span><span class="p">(</span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">Value</span><span class="p">))</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>## # A tibble: 6 x 2
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 6 x 2
 ##            Measure     mean
 ##              &lt;chr&gt;    &lt;dbl&gt;
 ## 1      Agriculture 50.65957
@@ -737,21 +683,19 @@ created, in this case the mean.</p>
 ## 4      Examination 16.48936
 ## 5        Fertility 70.14255
 ## 6 Infant.Mortality 19.94255
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>You can extend this to be created as a table in the generated <code class="highlighter-rouge">.md</code> or
 <code class="highlighter-rouge">.html</code> file using the <code class="highlighter-rouge">kable</code> command (short for ‘knitr table’).</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">knitr</span><span class="p">)</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">knitr</span><span class="p">)</span><span class="w">
 </span><span class="n">ds2</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">select</span><span class="p">(</span><span class="o">-</span><span class="n">X</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">gather</span><span class="p">(</span><span class="n">Measure</span><span class="p">,</span><span class="w"> </span><span class="n">Value</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">group_by</span><span class="p">(</span><span class="n">Measure</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">summarise</span><span class="p">(</span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">Value</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
   </span><span class="n">kable</span><span class="p">()</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <table>
   <thead>
@@ -799,15 +743,14 @@ for R code chunk options.  If you look at the raw <code class="highlighter-rouge
 
 <p>These two commands generate either a html or a md file.</p>
 
-<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">## into html
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## into html</span><span class="w">
 </span><span class="n">library</span><span class="p">(</span><span class="n">rmarkdown</span><span class="p">)</span><span class="w">
-</span><span class="n">render</span><span class="p">(</span><span class="s1">'lesson.Rmd'</span><span class="p">)</span><span class="w"> </span><span class="c1">## or can use rmarkdown::render('main.Rmd')
-</span><span class="w">
-</span><span class="c1">## into md
+</span><span class="n">render</span><span class="p">(</span><span class="s1">'lesson.Rmd'</span><span class="p">)</span><span class="w"> </span><span class="c1">## or can use rmarkdown::render('main.Rmd')</span><span class="w">
+
+</span><span class="c1">## into md</span><span class="w">
 </span><span class="n">library</span><span class="p">(</span><span class="n">knitr</span><span class="p">)</span><span class="w">
-</span><span class="n">knit</span><span class="p">(</span><span class="s1">'lesson.Rmd'</span><span class="p">)</span><span class="w"> </span><span class="c1">## or can use knitr::knit('main.Rmd')
-</span></code></pre>
-</div>
+</span><span class="n">knit</span><span class="p">(</span><span class="s1">'lesson.Rmd'</span><span class="p">)</span><span class="w"> </span><span class="c1">## or can use knitr::knit('main.Rmd')</span><span class="w">
+</span></code></pre></div></div>
 
 <h1 id="challenge-try-this-out-for-yourself">Challenge: Try this out for yourself!</h1>
 

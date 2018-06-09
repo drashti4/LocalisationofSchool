@@ -235,20 +235,18 @@ Or just go to generated_pages url for your repository:<br />
   <li>
     <p>First, we need to make sure we have everything installed</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> $ git --version
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ git --version
  git version X.X.X
  $ jekyll -v
  jekyll X.X.X
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>We’ll have to create (or choose) a repo for a project</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> $ git init first-website
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ git init first-website
  Initialized empty Git repository in &lt;path/to/current/directory&gt;/first-website/.git/
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
 </ol>
 
@@ -263,27 +261,24 @@ and another one: <code class="highlighter-rouge">jekyll build</code> but <code c
 
 <p>let’s test them out:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ jekyll new first-website
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jekyll new first-website
 New jekyll site installed in &lt;path/to/current/directory&gt;/first-website.
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>So we have a project, let’s check out what’s there!</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ cd first-website
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd first-website
 $ ls -lFA
 $ git status
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Lots of files. Before we dig in let’s try to get our website built</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ jekyll serve
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jekyll serve
 ... &lt;lots of details including file paths&gt;
 Server address: http://127.0.0.1:4000/
 Server running... press ctrl-c to stop.
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>…and check it out in the browser.</p>
 
@@ -296,10 +291,9 @@ Let’s edit <code class="highlighter-rouge">index.html</code>, see how it updat
 
 <p>Before doing more let’s take a look at all those files and folders in our directory again. <a href="https://jekyllrb.com/docs/structure/">Jekyll</a> docs and the <code class="highlighter-rouge">tree</code> command can do a better job than me…</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ ls -lFA
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls -lFA
 $ tree
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>A clumsy equation for jekyll: <br />
 <code class="highlighter-rouge">_*</code> files and folders * <code class="highlighter-rouge">*.html/markdown/md/textile</code> = your static site (in <code class="highlighter-rouge">_site</code>)</p>
@@ -310,25 +304,23 @@ $ tree
 
 <p><strong>YAML Front Matter</strong> (<strike>Yet Another Markup Language</strike> YAML Ain’t Markup Language), once again I’ll lean on <a href="https://jekyllrb.com/docs/frontmatter/">jekyll</a> docs</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ cat about.md
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat about.md
 ---
 layout: page
 title: About
 permalink: /about/
 ---
 ...
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>and <strong><a href="https://shopify.github.io/liquid/">Liquid</a> Filters and Tags</strong> (A templating Language for handling dynamic content), thrice those handy <a href="https://jekyllrb.com/docs/templates/">jekyll</a> docs</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ cat about.md
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat about.md
 ---
 ...
 {% include icon-github.html username="jglovier" %}
 ...
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>I hope that is enough to start, there are lots more fiddly bits, but the docs and additional resources (below), as well as google, have lots to offer!</p>
 
@@ -340,13 +332,12 @@ permalink: /about/
 
 <p>Before we get this up on GitHub we should make sure that the repo is set up to not commit the static version of the site. GitHub does not need it to host your site, as they use jekyll to generate sites on their end too:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ git status
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git status
 ...
 .gitignore
 ...
 $ &lt;cat/touch&gt; .gitignore
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Github helpfully publishes all sorts of template .gitignores, the <a href="https://github.com/github/gitignore/blob/master/Jekyll.gitignore">jekyll</a> one only has three items…</p>
 
@@ -354,18 +345,16 @@ $ &lt;cat/touch&gt; .gitignore
 
 <p>now, to commit our changes…</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ git checkout -b gh-pages
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git checkout -b gh-pages
 $ git add .
 $ git commit -m '&lt;some meaningful commit message&gt;'
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>and push them to GitHub…</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ git remote add origin &lt;repo address&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git remote add origin &lt;repo address&gt;
 $ git push --set-upstream origin gh-pages
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>success! (hopefully…?)</p>
 

@@ -128,15 +128,13 @@
   <li>
     <p>For the function <code class="highlighter-rouge">plot</code>, enter the parameter <code class="highlighter-rouge">type="n"</code> to create a blank plot that maintains the axes labels and plotting parameters:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>plot(PC2 ~ PC1, data=foo, type="n", xlab="PC1", ylab="PC2")
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plot(PC2 ~ PC1, data=foo, type="n", xlab="PC1", ylab="PC2")
+</code></pre></div>    </div>
 
     <p>Next use the function <code class="highlighter-rouge">text</code> to plot the text values. Use <code class="highlighter-rouge">foo$metric</code> as the label values</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>text(PC2 ~ PC1, data=foo, labels=foo$metric)
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>text(PC2 ~ PC1, data=foo, labels=foo$metric)
+</code></pre></div>    </div>
   </li>
 </ol>
 
@@ -163,13 +161,12 @@
   <li>
     <p>for the choices, use:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>choices = c(
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>choices = c(
             "Colless" = "colless",
             "Species Pool Size" = "numsp",
             "Spatially Contiguous" = "spatial"
         )
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Link <code class="highlighter-rouge">var</code> as <code class="highlighter-rouge">input$var</code> in <code class="highlighter-rouge">server.r</code> (refer to <code class="highlighter-rouge">server.r</code>)</p>
@@ -182,15 +179,14 @@
   <li><code class="highlighter-rouge">sliderInput(..., label = h4("Adjust cex"))</code></li>
   <li><code class="highlighter-rouge">sliderInput(..., max = 5)</code></li>
   <li>
-    <div class="highlighter-rouge"><pre class="highlight"><code>selectInput(inputId='var', label = h3('Variable'),
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>selectInput(inputId='var', label = h3('Variable'),
             choices = c(
             "Colless" = "colless",
             "Species Pool Size" = "numsp",
             "Spatially Contiguous" = "spatial"
            )
 )
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
 </ol>
 
@@ -211,15 +207,14 @@ To do so:</p>
 <h4>HINTS:</h4>
 <ol>
   <li>
-    <div class="highlighter-rouge"><pre class="highlight"><code>output$pcaplot &lt;- renderPlot({
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output$pcaplot &lt;- renderPlot({
     #Subset for input$var and assign this subset to new object, "fbar"
     fbar&lt;-droplevels(foo[which(foo$Var==input$var),])
 #Change "foo" to "fbar" for the plot and text
 plot(PC2 ~ PC1, data=fbar, type="n", xlab="PC1", ylab="PC2")
 text(PC2 ~ PC1, data=fbar, labels=fbar$metric, cex=input$cexSlider)
 })
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
 </ol>
 
@@ -245,9 +240,8 @@ So to create a <code class="highlighter-rouge">checkboxgroup</code> of <code cla
   <li>
     <p>Place the following snippet of code in <code class="highlighter-rouge">ui.R</code> within the <code class="highlighter-rouge">sidebarPanel</code>, after the <code class="highlighter-rouge">selectInput</code> for the variables:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>uiOutput(outputId="paramchkbxgrp")
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uiOutput(outputId="paramchkbxgrp")
+</code></pre></div>    </div>
   </li>
 </ol>
 
@@ -265,7 +259,7 @@ So to create a <code class="highlighter-rouge">checkboxgroup</code> of <code cla
 
     <p>Use the following script as a framework for the <code class="highlighter-rouge">paramchkbxgrp</code> object:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>output$paramchkbxgrp &lt;- renderUI({
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output$paramchkbxgrp &lt;- renderUI({
              if (is.null(input$var))
               return()
         # Depending on input$var, we'll generate a different
@@ -284,21 +278,18 @@ So to create a <code class="highlighter-rouge">checkboxgroup</code> of <code cla
              )
           })
         })
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>When certain checkboxes are unselected, display the text as grey with some transparency. To do this, within the <code class="highlighter-rouge">renderPlot</code> function, adjust the <code class="highlighter-rouge">cols</code> object such that the unselected are black with high transparency (display as grey). To do this for the <code class="highlighter-rouge">cols</code> object, subset for when <code class="highlighter-rouge">input$PARAMS</code> is not in <code class="highlighter-rouge">levels(fbar$PARAMS)</code>:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>cols[which(!(levels(fbar$param) %in% input$PARAMS))]
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cols[which(!(levels(fbar$param) %in% input$PARAMS))]
+</code></pre></div>    </div>
 
     <p>Then assign all of these instances as black <code class="highlighter-rouge">rgb(0,0,0, maxColorValue=255)</code> with very high transparency <code class="highlighter-rouge">rgb(0,0,0, alpha =25, maxColorValue=255)</code>:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>cols[which(!(levels(fbar$param) %in% input$PARAMS))]&lt;- rgb(0,0,0, alpha=25,maxColorValue=255)
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cols[which(!(levels(fbar$param) %in% input$PARAMS))]&lt;- rgb(0,0,0, alpha=25,maxColorValue=255)
+</code></pre></div>    </div>
   </li>
 </ol>
 
@@ -306,7 +297,7 @@ So to create a <code class="highlighter-rouge">checkboxgroup</code> of <code cla
 
 <ol>
   <li>
-    <div class="highlighter-rouge"><pre class="highlight"><code>## Drop-down menu to select Factor
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## Drop-down menu to select Factor
 output$paramchkbxgrp &lt;- renderUI({
      if (is.null(input$var))
        return()
@@ -331,11 +322,10 @@ output$paramchkbxgrp &lt;- renderUI({
        selected = c("TRUE","FALSE")),
    )
    })
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
-    <div class="highlighter-rouge"><pre class="highlight"><code>output$pcaplot &lt;- renderPlot({
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output$pcaplot &lt;- renderPlot({
          #Match user's variable input selection by subsetting for when foo$Var==input$var
          fbar&lt;-droplevels(foo[which(foo$Var==input$var),])
 
@@ -360,8 +350,7 @@ output$paramchkbxgrp &lt;- renderUI({
          legend("topright", fill=cols, legend=levels(fbar$param))
 
    })
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
 </ol>
 
@@ -387,7 +376,7 @@ output$paramchkbxgrp &lt;- renderUI({
 
 <ol>
   <li>
-    <div class="highlighter-rouge"><pre class="highlight"><code>sidebarPanel(
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sidebarPanel(
      selectInput(inputId='var', ...),
      uiOutput(outputId="paramchkbxgrp"),
      sliderInput(inputId = "cexSlider", ...),
@@ -396,13 +385,11 @@ output$paramchkbxgrp &lt;- renderUI({
      uiOutput(outputId="sliderY")
      #*******************************
 )
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
-    <div class="highlighter-rouge"><pre class="highlight"><code>plotOutput(outputId="pcaplot",  width="750px",height="750px")
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plotOutput(outputId="pcaplot",  width="750px",height="750px")
+</code></pre></div>    </div>
   </li>
 </ol>
 
@@ -417,9 +404,8 @@ output$paramchkbxgrp &lt;- renderUI({
           <li>
             <p>within the <code class="highlighter-rouge">renderUI</code> wrapper, use the <code class="highlighter-rouge">sliderInput</code> function:</p>
 
-            <div class="highlighter-rouge"><pre class="highlight"><code>sliderInput(inputId, label, min, max, value)
-</code></pre>
-            </div>
+            <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sliderInput(inputId, label, min, max, value)
+</code></pre></div>            </div>
 
             <dl>
               <dt><code class="highlighter-rouge">inputId</code></dt>
@@ -455,7 +441,7 @@ output$paramchkbxgrp &lt;- renderUI({
   <li>
     <p>Use the R <code class="highlighter-rouge">expressions</code> instead to display labels. Paste the following code into your script:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>output$pcaplot &lt;- renderPlot({
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output$pcaplot &lt;- renderPlot({
          ...
          for(i in levels(fbar$param)){
              foo2&lt;-subset(fbar,param==i)
@@ -464,15 +450,14 @@ output$paramchkbxgrp &lt;- renderUI({
          }
          #...
      })
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
 </ol>
 
 <h4>HINTS:</h4>
 <ol>
   <li>
-    <div class="highlighter-rouge"><pre class="highlight"><code>shinyServer(function(input, output) {
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>shinyServer(function(input, output) {
      output$paramchkbxgrp &lt;- renderUI({...})
 
     ********ADD THIS SCRIPT********
@@ -496,30 +481,27 @@ output$paramchkbxgrp &lt;- renderUI({
 
      output$pcaplot &lt;- renderPlot({...})
  })
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
-    <div class="highlighter-rouge"><pre class="highlight"><code>output$pcaplot &lt;- renderPlot({
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output$pcaplot &lt;- renderPlot({
     #...
     plot(PC2 ~ PC1, data=fbar, type="n", xlab="PC1", ylab="PC2", xlim=input$SLIDERX, ylim=input$SLIDERY)
     #...
 })
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
-    <div class="highlighter-rouge"><pre class="highlight"><code>output$pcaplot &lt;- renderPlot({
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output$pcaplot &lt;- renderPlot({
      #...
      plot(PC2 ~ PC1, data=fbar, type="n", xlab="PC1", ylab="PC2", xlim=input$SLIDERX, ylim=input$SLIDERY)
      abline(h=0,v=0,col="red",lty=2)
      #...
 })
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
-    <div class="highlighter-rouge"><pre class="highlight"><code>output$pcaplot &lt;- renderPlot({
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output$pcaplot &lt;- renderPlot({
      fbar&lt;-droplevels(...)
 
      pcaper&lt;-pca_percent[which(pca_percent$Var==input$var),]
@@ -529,8 +511,7 @@ output$paramchkbxgrp &lt;- renderUI({
          ylab=paste("PCA Axis 2 (",pcaper[3],"%)"))
      #    ...
 })
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
 </ol>
 

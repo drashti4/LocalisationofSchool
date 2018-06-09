@@ -162,22 +162,20 @@ together:</p>
 <p>Create a folder and create a git repository (which is the stored
 history) in that folder. (Note: <code class="highlighter-rouge">##</code> is a comment, not a command).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>cd ~/Desktop ## Move to your desktop
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd ~/Desktop ## Move to your desktop
 mkdir playing ## Create a folder (aka directory)
 cd playing
 git init ## Create the repository (init = initialize)
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Now, create a file, get git to track it, and save it to the history.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>touch bio.txt ## Command to create a file called bio.txt
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>touch bio.txt ## Command to create a file called bio.txt
 ls ## Check that you created the file, ls = list files
 git add bio.txt ## Track the file
 ## Save the file to the history with a message (-m)
 git commit -m "Initial commit"
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Now, open the <code class="highlighter-rouge">bio.txt</code> file and add:</p>
 
@@ -189,12 +187,11 @@ git commit -m "Initial commit"
 
 <p>Then:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git status ## Check the activity
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status ## Check the activity
 git diff bio.txt ## Compare to the one in the history
 git add bio.txt ## This sends it to the staging area
 git commit -m "Added my bio" ## This sends it to the history
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>For a description on what the different stages are (working directory,
 staging area, and committed history) see the below links:</p>
@@ -206,20 +203,18 @@ staging area, and committed history) see the below links:</p>
 
 <p>Then, to see what has happened in your history:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git log ## View the log of your history
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log ## View the log of your history
+</code></pre></div></div>
 
 <p><em>If we have time</em>, we’ll create a GitHub account, create a GitHub
 repository (a remote repository), and upload the repository on your
 computer (called the local repository) onto the remote repository
 (GitHub):</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git remote add origin https://github.com/yourusername/playing.git
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add origin https://github.com/yourusername/playing.git
 git push origin master
 git pull
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Now you know about a typical workflow!  There are <strong>lots</strong> of commands
 and options in git, you really can do almost anything.  <em>However</em>,
