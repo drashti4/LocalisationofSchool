@@ -29,3 +29,6 @@ tags:
 - List any 2 activity and ask them to identify input and output
 - Have they experiance these input devices – If device available then show them.
 - Write essay by use of keyboard with use of different font and size.
+
+
+ <button onclick="location.href='https://crowdin.com/translate/localweb/13/en-en'" type="button">Translate this!</button> 
